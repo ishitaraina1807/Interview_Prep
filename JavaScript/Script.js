@@ -157,7 +157,7 @@ const obj = {
   //Function execution
 
   function sayHello() {
-    console.log("Hello, " + this.name);
+    // console.log("Hello, " + this.name);
   }
   
   const person1 = { name: "Ishita", greet: sayHello };
@@ -175,10 +175,51 @@ const obj = {
 const objectie = {
     name: "js krlo",
     greet: () => {
-      console.log("Hello, " + this.name);
+    //   console.log("okay, " + this.name);
     },
   };
   
-  obj.greet();
-  
+  objectie.greet();
 
+//   Arrow functions work inside setTimeout because they inherit this from the function they are in.
+//   But when an arrow function is directly inside an object, it doesn't inherit this from the object—it takes this from the global scope.
+
+
+// / *******--------******---------------*********-----------*****
+
+//Prototype and this keyword 
+
+// function Person(name) {
+//     this.name = name;
+//   }
+  
+//   Person.prototype.greet = function () {
+//     console.log("Peep peep " + this.name);
+//   };
+
+// Person.prototype.greet = () => {
+//     console.log("Hello " + this.name);
+//   };
+  
+//   const p1 = new Person("Billu");
+//   p1.greet();
+  
+//   let name = "billu"
+
+//   const person = {
+//     name: "Ishita",
+//     greet: function () {
+//       const inner = () => {
+//         console.log("Inner " + this.name);
+//       };
+//       inner();
+//     }
+//   };
+  
+//   const greetFunc = person.greet;
+//   greetFunc();
+
+//Understand this question again, why let name wont work?
+
+
+  
