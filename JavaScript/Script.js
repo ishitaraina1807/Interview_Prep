@@ -221,5 +221,54 @@ const objectie = {
 
 //Understand this question again, why let name wont work?
 
+// / *******--------******---------------*********-----------*****
+
+
+//create a copy of an object - not reference : this is not deep cloning but just how we can copy and object without its reference
+
+let user = {
+    name: "shimi shimi",
+    age :  343,
+}
+
+//if we try to clone directly
+let user2 = user
+
+// user2.name = "billu billu";
+const clone = Object.assign({ greet: function () {
+    console.log("hemlo" + this.name)
+}}, user);
+
+clone.name = "billu billu"
+
+// console.log(user, user2);
+console.log(user, clone); //yaya clone is a clone now 
+
+//also let's see the concept of call a little
+
+clone.greet()
+
+// user.greet() //this throws error
+
+clone.greet.call(user) // worked! 
+
+const objt = {
+    name: "Ishita",
+    greet: function () {
+      return {
+        normal: function () {
+          console.log("Normal:", this.name);
+        },
+        arrow: () => {
+          console.log("Arrow:", this.name);
+        },
+      };
+    },
+  };
+  
+  const greetFunc = objt.greet();
+  greetFunc.normal();
+  greetFunc.arrow();
+  
 
   
