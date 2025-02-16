@@ -236,13 +236,13 @@ let user2 = user
 
 // user2.name = "billu billu";
 const clone = Object.assign({ greet: function () {
-    console.log("hemlo" + this.name)
+    // console.log("hemlo" + this.name)
 }}, user);
 
 clone.name = "billu billu"
 
 // console.log(user, user2);
-console.log(user, clone); //yaya clone is a clone now 
+// console.log(user, clone); //yaya clone is a clone now 
 
 //also let's see the concept of call a little
 
@@ -257,10 +257,10 @@ const objt = {
     greet: function () {
       return {
         normal: function () {
-          console.log("Normal:", this.name);
+          // console.log("Normal:", this.name);
         },
         arrow: () => {
-          console.log("Arrow:", this.name);
+          // console.log("Arrow:", this.name);
         },
       };
     },
@@ -269,6 +269,116 @@ const objt = {
   const greetFunc = objt.greet();
   greetFunc.normal();
   greetFunc.arrow();
-  
 
   
+  // *******--------******---------------*********-----------*****
+
+  //Ployfill for bind method
+  //-> Traditional bind method 
+
+  let normal = {
+    name: "Ishi",
+    age: 22
+  }
+
+  let printInfo = function (hometown, state) {
+    // console.log("Name: " + this.name + " & " + "age: " + this.age + hometown + "  " + state)
+  }
+  
+  let printInfoUsingBind = printInfo.bind(normal, "Jammu")
+  printInfoUsingBind("Mentally broke");
+  
+  //implement our own bind somehow
+  Function.prototype.mybind = function(...args) {
+    let obj = this
+    params = args.slice(1);
+     return function(...args2) {
+       obj.apply(args[0], [...params, ...args2]);
+     }
+  }
+
+
+let printUsingOwnBind = printInfo.mybind(normal, "Jammu")
+printUsingOwnBind("Mentally stable");
+
+// *******--------******---------------*********-----------*****
+
+//prototypical inheritance, objects, constructors and all 
+
+
+// function Parent() {}
+// Parent.prototype.greet = function () {
+//   console.log("Hello from Parent");
+// };
+
+// function Child() {}
+// Child.prototype = Object.create(Parent.prototype);
+// Child.prototype.greet = function () {
+//   console.log("Hello from Child");
+// };
+
+// const obwj = new Child();
+// // delete obwj.greet; -> deleted from obwj only but in next line it's delete from whole Child
+// delete Child.prototype.greet;
+// obwj.greet();
+
+function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.makeSound = function() {
+  // console.log(this.name + " makes a sound.");
+};
+
+function Dog(name, breed) {
+  Animal.call(this, name); // Inheriting properties
+  this.breed = breed;
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function() {
+  // console.log(this.name + " barks!");
+};
+
+const doggo = new Dog("Bruno", "Labrador");
+
+// console.log(doggo.constructor === Dog);
+// console.log(doggo.constructor === Animal);
+doggo.makeSound();
+doggo.bark();
+
+//***************************************************************** */
+
+
+// sayHello();
+
+// function sayHello() {
+//   console.log("Hello Ishitaaa!");
+// }
+// //function declaration are fully hoisted so it runs
+
+// greet();
+// //gets hoisted but only the declaration
+// var greet = function () {
+//   console.log("Good Morning!");
+// };
+
+//**************************************************************** */
+
+var length = 4;
+
+function callback() {
+  console.log(this.length);
+}
+
+const obj = {
+  length: 10,
+  method: function() {
+    arguments[0]();
+  }
+};
+
+obj.method(callback, 1, 2, 3);
+
