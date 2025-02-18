@@ -373,12 +373,12 @@ function callback() {
   console.log(this.length);
 }
 
-const obj = {
+const obje = {
   length: 10,
   method: function() {
     arguments[0]();
   }
 };
 
-obj.method(callback, 1, 2, 3);
+obje.method(callback, 1, 2, 3);
 
