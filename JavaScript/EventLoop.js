@@ -8,7 +8,7 @@ setTimeout(() => {
 // Function to flood microtasks queue
 function starveEventLoop() {
   Promise.resolve().then(() => {
-    starveEventLoop();  
+    // starveEventLoop();  
   });
 }
 
