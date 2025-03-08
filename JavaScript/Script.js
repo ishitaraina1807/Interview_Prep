@@ -434,3 +434,13 @@ doggo.bark();
 // }
 
 // console.log("after switch ", a)
+
+//IIFE FUNCTION___________________________-
+
+(function() {
+  var count = 10;
+  count++;
+  setTimeout(() => {
+    console.log(count)
+  }, 2000)
+}) ();
