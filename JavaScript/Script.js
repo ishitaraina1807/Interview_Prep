@@ -367,18 +367,21 @@ doggo.bark();
 
 //**************************************************************** */
 
-var length = 4;
+// var length = 4;
 
-function callback() {
-  console.log(this.length);
-}
+// function callback() {
+//   // console.log(this.length);
+// }
 
-const obje = {
-  length: 10,
-  method: function() {
-    arguments[0]();
-  }
-};
+// const obje = {
+//   length: 10,
+//   method: function() {
+//     arguments[0]();
+//   }
+// };
 
-obje.method(callback, 1, 2, 3);
+// obje.method(callback, 1, 2, 3);
+
+// Create a function createCounter that returns another function. 
+// Each time the returned function is called, it should increment and log a counter.
 

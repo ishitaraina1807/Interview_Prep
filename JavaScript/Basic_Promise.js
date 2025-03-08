@@ -1,26 +1,129 @@
-const data = true;
+//Write a function fetchData that returns a promise. 
+// The promise should resolve with the string "Data fetched successfully" 
+// after 2 seconds if a random number is even, or reject with "Failed to fetch data" if odd.
 
-const fetchData = new Promise((resolve, reject) => {
-  if (data) {
-    resolve("data is fetched");
-  } else {
-    reject("failed to fetch");
-  }
-});
+// const data = false;
 
-fetchData
-  .then((message) => {
-    console.log(message); 
-    
+// const fetchData = function (data) {
+//   const pr = new Promise(function(resolve, reject) {
+//     if(data){
+//      setTimeout(function() {
+//       resolve("Data fetched successfully")
+//      }, 2000)
+//     }
+//     else{
+//      const err = new Error("data not valid");
+//      reject(err)
+//     }
+//  })
+//  return pr; 
+// }
+
+// fetchData(data)
+// .then(function (message){
+//   console.log(message);
+// })
+// .catch(function(error) {
+//   console.log(error);
+// })
+
+
+// Write a function called checkStock that returns a promise.
+
+// This function takes an item name as a parameter (like "laptop" or "phone").
+// The promise should resolve with the message "Item <item> is in stock!" after 1 second if the item is found in a pre-defined array ["laptop", "phone", "tablet"].
+// If the item is not found, the promise should reject with the message "Item <item> is out of stock!".
+
+
+// const items = {
+//   "phone" : 3,
+//   "laptop" : 0
+// }
+// const userSelectedItem = "laptop"
+
+// const checkStock = function (items, userSelectedItem) {
+//   const pr = new Promise(function (resolve, reject) {
+//     if(items[userSelectedItem] > 0){
+//       setTimeout(function(){
+//         resolve("item " + userSelectedItem + " is in the stock!");
+//       }, 1000)
+//     }
+//     else{
+//       reject(userSelectedItem + " is out of stock!")
+//     }
+//   })
+//   return pr
+// }
+
+// checkStock(items, userSelectedItem)
+// .then(function(message){
+//   console.log(message);
+// })
+// .catch(function(error) {
+//   console.log(error);
+// })
+
+
+// Task:
+// Write a function processOrder that returns a promise to simulate an online shopping order process. The function should:
+
+// Check if the item is in stock (takes 1 second).
+// Process the payment if the item is in stock (takes 2 seconds).
+// Ship the item if the payment is successful (takes 1.5 seconds).
+// Use promise chaining to complete these tasks in order.
+// Requirements:
+
+// If the item is not in stock, reject with "Item out of stock!".
+// If payment fails, reject with "Payment failed!".
+// If everything is successful, resolve with "Order shipped!".
+
+const items = {
+  "phone": 3,
+  "laptop": 0
+}
+const userSelectedItem = "laptop"
+
+const processOrder = function (items, userSelectedItem) {
+  const pr = new Promise(function (resolve, reject) {
+    if (items[userSelectedItem] > 0) {
+      setTimeout(function () {
+        resolve("Item " + userSelectedItem + " is in stock!");
+      }, 1000)
+    } else {
+      reject("Item " + userSelectedItem + " is not in stock!");
+    }
+  });
+  return pr;
+}
+
+const processPayment = function() {
+  return new Promise(function (resolve, reject) {
     setTimeout(() => {
-      const userData = {
-        name: "Ishita",
-      };
-      console.table(userData);
-    }, 1000); 
+      resolve("Payment is successful");
+    }, 2000);
+  });
+}
+
+const handleShipping = function() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Order shipped!");
+    }, 1500);
+  });
+}
+
+processOrder(items, userSelectedItem)
+  .then(function(message) {
+    console.log(message);
+    return processPayment();
+  })
+  .then(function(message) {
+    console.log(message);
+    return handleShipping();
+  })
+  .then(function(message) {  
+    console.log(message);
   })
   .catch((error) => {
-    console.log(`Can't fetch user data: ${error}`);
+    console.log(error);
   });
-
-console.log("Fetching...");
