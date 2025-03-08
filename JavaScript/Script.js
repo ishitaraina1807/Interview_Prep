@@ -400,3 +400,37 @@ doggo.bark();
 // Make a function greet that takes a name 
 // and returns a function that adds a greeting message to that name when called.
 
+
+// const greet = () => {
+//   let name = "ishita";
+//  const greetFunc = function() {
+//   console.log("hello " + name)
+//  } 
+//  return greetFunc;
+// }
+
+// const capture = greet()
+// capture()
+
+//Write a function using a switch statement that redeclares a let variable 
+// inside different cases and logs it. Handle errors if redeclaration fails
+
+// let a = 2
+// console.log("globally: ", + a);
+
+// switch(a) {
+//   case 1: 
+//   {
+//     let a = 2;
+//     console.log("a in case 1: " + a );
+//     break;
+//   }
+//   case 2:
+//     {
+//       let a = 3
+//       console.log("a in case 2: " + a );
+//       break;
+//     }
+// }
+
+// console.log("after switch ", a)
