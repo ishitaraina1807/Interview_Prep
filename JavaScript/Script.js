@@ -385,3 +385,18 @@ doggo.bark();
 // Create a function createCounter that returns another function. 
 // Each time the returned function is called, it should increment and log a counter.
 
+// const createCounter = () => {
+//   let count = 0;
+//   const inner = function() {
+//     console.log(++count)
+//   }
+//   return inner;
+// }
+
+// const counter = createCounter();
+// counter();
+// counter();
+
+// Make a function greet that takes a name 
+// and returns a function that adds a greeting message to that name when called.
+
