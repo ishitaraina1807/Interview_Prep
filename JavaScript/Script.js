@@ -437,10 +437,36 @@ doggo.bark();
 
 //IIFE FUNCTION___________________________-
 
-(function() {
-  var count = 10;
-  count++;
-  setTimeout(() => {
-    console.log(count)
-  }, 2000)
-}) ();
+// (function() {
+//   var count = 10;
+//   count++;
+//   setTimeout(() => {
+//     console.log(count)
+//   }, 2000)
+// }) ();
+
+//**********interesting ques: does IIFE forms a closure  */
+
+const counter = (function() {  
+  let count = 0; 
+
+  return function() { 
+      count++; 
+      console.log("Count:", count);
+  };
+})();  
+
+counter(); 
+counter();  
+counter();  
+
+
+const createCounter = () => {
+  let count = 0;
+  return (function() {
+    console.log(++count)
+  })();
+}
+
+createCounter();
+createCounter();
