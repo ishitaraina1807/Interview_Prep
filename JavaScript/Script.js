@@ -447,26 +447,63 @@ doggo.bark();
 
 //**********interesting ques: does IIFE forms a closure  */
 
-const counter = (function() {  
-  let count = 0; 
+// const counter = (function() {  
+//   let count = 0; 
 
-  return function() { 
-      count++; 
-      console.log("Count:", count);
-  };
-})();  
+//   return function() { 
+//       count++; 
+//       console.log("Count:", count);
+//   };
+// })();  
 
-counter(); 
-counter();  
-counter();  
+// counter(); 
+// counter();  
+// counter();  
 
 
-const createCounter = () => {
-  let count = 0;
-  return (function() {
-    console.log(++count)
-  })();
-}
+// const createCounter = () => {
+//   let count = 0;
+//   return (function() {
+//     console.log(++count)
+//   })();
+// }
 
-createCounter();
-createCounter();
+// createCounter();
+// createCounter();
+
+//Arrays slice and splice methods practice 
+//The slice() method is used to extract a portion of an array without modifying the 
+//original array. It returns a new array containing the selected elements.
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const sliced = numbers.splice(2,4);
+
+console.log(spliced);
+
+// The splice() method is used to add, remove, or replace elements in an array. It modifies the original array in place.
+
+// ✅ Key Points:
+
+// Modifies the original array.
+// Can be used to remove elements.
+// Can be used to add new elements.
+// Can be used to replace elements
+
+const colors = ["red", "blue", "green", "yellow"];
+const removed = colors.splice(1, 2); // Removes 2 elements starting from index 1
+
+console.log(removed); // Output: ["blue", "green"]
+console.log(colors);  // Modified array: ["red", "yellow"]
+
+const fruits = ["apple", "banana", "grape"];
+fruits.splice(1, 0, "mango", "orange"); // Adds at index 1
+
+console.log(fruits); // Output: ["apple", "mango", "orange", "banana", "grape"]
+
+const numberss = [10, 20, 30, 40];
+numbers.splice(1, 2, 25, 35); // Replaces 2 elements at index 1
+
+console.log(numberss); // Output: [10, 25, 35, 40]
+
+
+
