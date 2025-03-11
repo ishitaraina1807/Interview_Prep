@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service worker exsmple</title>
+</head>
+<body>
+
+    <h2>Service Worker Example</h2>
+    <p>Check the Console (F12) for logs.</p>
+
+    <script>
+//Registering the service worker
+        if('serviceWorker' in navigator) { //check browser support  
+           navigator.serviceWorker.register("./service-worker.js")
+           .then (() =>  console.log('Service workder registered!'))
+           .catch(() => console.log("no support"));
+        }
+    </script>
+    
+</body>
+</html>

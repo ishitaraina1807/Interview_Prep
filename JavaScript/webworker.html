@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web worker example</title>
+</head>
+<body>
+    <h2>Web Worker example</h2>
+    <button onclick="startWorker()">Start Worker</button>
+    <p id="result"></p>
+
+    <script>
+ 
+     let worker;
+
+     function startWorker() {
+        if (!worker) {
+            worker = new Worker("WebWorker.js");
+            document.getElementById("result").innerText = "Calculating..."; // Show loading
+
+            worker.postMessage(2000000000);
+
+            worker.onmessage = function (event) {
+                document.getElementById("result").innerText = "Sum is: " + event.data;
+                worker.terminate();
+                worker = null;
+            };
+        } else {
+            console.log("Your browser doesn't support Web Workers.");
+        }
+     }
+
+    </script>
+    
+</body>
+</html>

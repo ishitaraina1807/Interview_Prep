@@ -1,30 +1,30 @@
-Promise.resolve(1)
-.then((val) => {
-  console.log(val)
-  return val + 1
-}).then((val) => {
-  console.log(val)
-}).then((val) => {
-  console.log(val)
-  return Promise.resolve(3)
-    .then((val) => {
-      console.log(val)
-    })
-}).then((val) => {
-  console.log(val)
-  return Promise.reject(4)
-}).catch((val) => {
-  console.log(val)
-  return 5
-}).finally((val) => {
-  console.log(val)
-  return 10
-}).then((val) => {
-  console.log(val)
-  return 99
-}) .then((val) => {
-    console.log(val)
-})
+// Promise.resolve(1)
+// .then((val) => {
+//   console.log(val)
+//   return val + 1
+// }).then((val) => {
+//   console.log(val)
+// }).then((val) => {
+//   console.log(val)
+//   return Promise.resolve(3)
+//     .then((val) => {
+//       console.log(val)
+//     })
+// }).then((val) => {
+//   console.log(val)
+//   return Promise.reject(4)
+// }).catch((val) => {
+//   console.log(val)
+//   return 5
+// }).finally((val) => {
+//   console.log(val)
+//   return 10
+// }).then((val) => {
+//   console.log(val)
+//   return 99
+// }) .then((val) => {
+//     console.log(val)
+// })
 
 // const promise = new Promise((resolve, reject) => {
 //     resolve("Success!");
@@ -41,3 +41,5 @@ Promise.resolve(1)
 //     .catch(error => {
 //         console.log("Catch:", error);
 //     });
+
+
