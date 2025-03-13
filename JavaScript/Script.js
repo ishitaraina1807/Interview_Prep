@@ -475,10 +475,10 @@ doggo.bark();
 //The slice() method is used to extract a portion of an array without modifying the 
 //original array. It returns a new array containing the selected elements.
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const sliced = numbers.splice(2,4);
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const sliced = numbers.splice(2,4);
 
-console.log(spliced);
+// console.log(sliced);
 
 // The splice() method is used to add, remove, or replace elements in an array. It modifies the original array in place.
 
@@ -489,21 +489,21 @@ console.log(spliced);
 // Can be used to add new elements.
 // Can be used to replace elements
 
-const colors = ["red", "blue", "green", "yellow"];
-const removed = colors.splice(1, 2); // Removes 2 elements starting from index 1
+// const colors = ["red", "blue", "green", "yellow"];
+// const removed = colors.splice(1, 2); // Removes 2 elements starting from index 1
 
-console.log(removed); // Output: ["blue", "green"]
-console.log(colors);  // Modified array: ["red", "yellow"]
+// console.log(removed); // Output: ["blue", "green"]
+// console.log(colors);  // Modified array: ["red", "yellow"]
 
-const fruits = ["apple", "banana", "grape"];
-fruits.splice(1, 0, "mango", "orange"); // Adds at index 1
+// const fruits = ["apple", "banana", "grape"];
+// fruits.splice(1, 0, "mango", "orange"); // Adds at index 1
 
-console.log(fruits); // Output: ["apple", "mango", "orange", "banana", "grape"]
+// console.log(fruits); // Output: ["apple", "mango", "orange", "banana", "grape"]
 
-const numberss = [10, 20, 30, 40];
-numbers.splice(1, 2, 25, 35); // Replaces 2 elements at index 1
+// const numberss = [10, 20, 30, 40];
+// numbers.splice(1, 2, 25, 35); // Replaces 2 elements at index 1
 
-console.log(numberss); // Output: [10, 25, 35, 40]
+// console.log(numberss); // Output: [10, 25, 35, 40]
 
 
 
