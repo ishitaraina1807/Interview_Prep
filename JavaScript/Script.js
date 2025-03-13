@@ -506,4 +506,57 @@ doggo.bark();
 // console.log(numberss); // Output: [10, 25, 35, 40]
 
 
+//-----------------************-----------------************-----------------************-----------------************
 
+//--> first class functions in js
+
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
+
+const sayHii = greet; // Assigning function to a variable
+console.log(sayHii("Ishita")); // Hello, Ishita!
+
+
+//--->first order function in js
+
+function add(a, b) {
+  return a + b; // Only returns a value, not a function
+}
+
+console.log(add(5, 3)); // 8
+
+//--> higher order functions in js
+
+function greet() {
+  return function(name) {  // Returns a function
+    return `Hello, ${name}!`;
+  }
+}
+//or:
+
+//accepts a function as an argument
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+function callGreet(func, name) { // Accepts a function as an argument so this is a higher order function
+  return func(name);
+}
+
+//----> unary function in js
+
+const square = x => x * x; // Unary function (only one parameter)
+console.log(square(4)); // 16
+
+//---> currying in js
+
+function curryAdd(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+
+console.log(curryAdd(2)(3)(4)); // 9
