@@ -77,53 +77,86 @@
 // If payment fails, reject with "Payment failed!".
 // If everything is successful, resolve with "Order shipped!".
 
-const items = {
-  "phone": 3,
-  "laptop": 0
-}
-const userSelectedItem = "laptop"
+// const items = {
+//   "phone": 3,
+//   "laptop": 0
+// }
+// const userSelectedItem = "laptop"
 
-const processOrder = function (items, userSelectedItem) {
-  const pr = new Promise(function (resolve, reject) {
-    if (items[userSelectedItem] > 0) {
-      setTimeout(function () {
-        resolve("Item " + userSelectedItem + " is in stock!");
-      }, 1000)
-    } else {
-      reject("Item " + userSelectedItem + " is not in stock!");
-    }
-  });
-  return pr;
-}
+// const processOrder = function (items, userSelectedItem) {
+//   const pr = new Promise(function (resolve, reject) {
+//     if (items[userSelectedItem] > 0) {
+//       setTimeout(function () {
+//         resolve("Item " + userSelectedItem + " is in stock!");
+//       }, 1000)
+//     } else {
+//       reject("Item " + userSelectedItem + " is not in stock!");
+//     }
+//   });
+//   return pr;
+// }
 
-const processPayment = function() {
-  return new Promise(function (resolve, reject) {
-    setTimeout(() => {
-      resolve("Payment is successful");
-    }, 2000);
-  });
-}
+// const processPayment = function() {
+//   return new Promise(function (resolve, reject) {
+//     setTimeout(() => {
+//       resolve("Payment is successful");
+//     }, 2000);
+//   });
+// }
 
-const handleShipping = function() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Order shipped!");
-    }, 1500);
-  });
-}
+// const handleShipping = function() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("Order shipped!");
+//     }, 1500);
+//   });
+// }
 
-processOrder(items, userSelectedItem)
-  .then(function(message) {
-    console.log(message);
-    return processPayment();
-  })
-  .then(function(message) {
-    console.log(message);
-    return handleShipping();
-  })
-  .then(function(message) {  
-    console.log(message);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// processOrder(items, userSelectedItem)
+//   .then(function(message) {
+//     console.log(message);
+//     return processPayment();
+//   })
+//   .then(function(message) {
+//     console.log(message);
+//     return handleShipping();
+//   })
+//   .then(function(message) {  
+//     console.log(message);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+//----------Lets practice promise.all, promise.allSettled, promise.race and promise.any
+
+//promise 1 
+const p1 = new Promise((resolve,reject)=>{
+  setTimeout(() => {
+    reject("Promise 1 resolved");
+  }, 2000)
+})
+
+//promise 2
+const p2 = new Promise((resolve,reject)=>{
+  setTimeout(() => {
+    reject("Promise 2 resolved");
+  }, 3000)
+})
+
+//prmose 3 
+
+const p3 = new Promise((resolve,reject)=>{
+  setTimeout(() => {
+    reject("Promise 3 rejected!");
+  }, 2000)
+})
+
+Promise.any([p1,p2,p3])
+.then((message) => {
+  console.log(message);
+})
+.catch((error) => {
+  console.log(error);
+})
+console.log("Promise.all is called"); //very interesting to the aggregated error for promise.any
