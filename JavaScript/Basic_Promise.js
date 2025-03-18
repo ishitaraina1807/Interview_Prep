@@ -133,14 +133,14 @@
 //promise 1 
 const p1 = new Promise((resolve,reject)=>{
   setTimeout(() => {
-    reject("Promise 1 resolved");
+    reject("Promise 1 rejected!");
   }, 2000)
 })
 
 //promise 2
 const p2 = new Promise((resolve,reject)=>{
   setTimeout(() => {
-    reject("Promise 2 resolved");
+    resolve("Promise 2 resolved");
   }, 3000)
 })
 
