@@ -203,6 +203,22 @@ var object = new Person();
 const orgObject = { company: 'XYZ Corp'};
 const carObject = { name: 'Toyota'};
 const staff = Object.assign({}, orgObject, carObject);
-
+console.log(staff);
 //difference between create and assign:
+//Object.create() creates a new object with the specified prototype object and properties. and 
+//Object.assign() copies the properties from one or more source objects to a target object.
+
+function greet(role) {
+  console.log(`Hello, I am ${this.name} and I work as a ${role}.`);
+}
+
+const person = { name: "Ishita" };
+
+greet.call(person, "Developer"); 
+
+const numbers = [1, 5, 3, 9, 2];
+console.log(Math.max.apply(null, numbers)); 
+
+//Math.max() is a built-in JavaScript function that takes multiple numerical arguments like:
+// Math.max(1, 5, 3, 9, 2); 
 
